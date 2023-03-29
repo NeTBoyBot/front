@@ -27,7 +27,8 @@ registration(userRegister : any) : Observable<any>{
 }
 
 getCurrentUser() : Observable<any>{
-  let url = `https://localhost:7269/СurrentUser`;
+  let url = `https://localhost:7269/СurrentUserId`;
+  console.log(this._http.get<any>(url));
   return this._http.get<any>(url);
 }
 

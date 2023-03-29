@@ -5,6 +5,9 @@ import { combineLatest, Observable } from 'rxjs';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { UserService } from 'src/app/services/user-service';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 
 @Component({
@@ -18,10 +21,12 @@ export class HomeComponent implements OnInit {
   category: string = "";
 
   constructor( private fb : FormBuilder,
+    private _userService:UserService,
     private _categoryService: CategoryService,
     private _productService: ProductService,
     private route : ActivatedRoute,
-    private _cartService : ShoppingCartService,){}
+    private _cartService : ShoppingCartService,
+    private nzNotificationService : NzNotificationService){}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(paramMap => console.log(paramMap.get('Name')));
@@ -42,5 +47,6 @@ export class HomeComponent implements OnInit {
     addProductToCart(productId: string){
       this._cartService.addProductToCart(productId).subscribe(res=>
         console.log(res));
+        this.nzNotificationService.success('Успех' , 'Товар был успешно добавлен');
     }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-my-shopping-cart',
@@ -10,7 +12,8 @@ export class MyShoppingCartComponent implements OnInit {
 
   itemCart : any;
   constructor(
-    private _cartService : ShoppingCartService){}
+    private _cartService : ShoppingCartService,
+    private router : Router){}
 
   ngOnInit(): void {
     this.onSubmit();
@@ -22,6 +25,7 @@ export class MyShoppingCartComponent implements OnInit {
 
   deleteFromCart(itemId: string){
     this._cartService.deleteProduct(itemId);
+    window.location.reload();
   }
 
 }

@@ -10,7 +10,7 @@ export class OrderService {
   constructor(private _http : HttpClient) { }
 
   RegistrOrder(adressDelivery: any ) : Observable<any>{
-    return this._http.post(`https://localhost:7278/order/add?DeliveryAddress=${adressDelivery}`, null);
+    return this._http.post(`https://localhost:7269/order/add?DeliveryAddress=${adressDelivery}`, null);
   }
 
 
