@@ -1,0 +1,39 @@
+<h1>Регистрация</h1>
+<form nz-form [formGroup]="form" (ngSubmit)="onSubmit()" class="max-w-[500px]">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="10" nzFor="name">ФИО</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzErrorTip]="errorTip">
+        <input nz-input name="name"  id="name" formControlName = "Name">
+      </nz-form-control>
+    </nz-form-item >
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="10" nzFor="email">Email</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzErrorTip]="errorTip">
+        <input nz-input name="email"  id="email" formControlName = "Email">
+
+      </nz-form-control>
+    </nz-form-item >
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="10" nzFor="password">Пароль</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzErrorTip]="errorTip">
+        <input nz-input name="password"  id="password" formControlName = "Password" type="password">
+      </nz-form-control>
+    </nz-form-item >
+
+
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="10" nzFor="region">Регион</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzErrorTip]="errorTip">
+        <input nz-input name="region"  id="region" formControlName = "Region">
+      </nz-form-control>
+    </nz-form-item >
+
+    <button nz-button nzType ="primary" type ="submit">Зарегистрироваться</button>
+  </form>
+
+  <ng-template #errorTip let-control>
+    <div style = "color:red" *ngIf="control?.invalid && control?.touched">Поле заполнено не верно</div>
+  </ng-template>
