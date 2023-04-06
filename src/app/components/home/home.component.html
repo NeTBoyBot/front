@@ -26,7 +26,6 @@
       <div *ngFor = "let item of product |async" class="item"  >
         <button (click)="addProductToCart(item.id)" style="float: right;  color:brown">🛒</button>
         <h1>{{item.name}}</h1> 
-
         <h2>Цена {{item.price |currency}}</h2> 
     </div>
 

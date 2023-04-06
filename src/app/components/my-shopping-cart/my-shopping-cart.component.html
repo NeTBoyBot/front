@@ -4,11 +4,13 @@
       <button nz-button nzType="dashed" (click)="deleteFromCart(item.id)" style= "color:black">❌</button>
 
       <h1>{{item.id}}</h1> 
-      <p>Описание: {{item.description}}</p> 
+      <p>Категория: {{item.product.category.name}}</p> 
+      <p>{{item.product.name}}</p> 
+      
       <div class="photo">
            
 
-      <h2>Цена {{item.price |currency}}</h2> 
+      <h2>Цена {{item.product.price |currency}}</h2> 
   </div>
 </div>
 
